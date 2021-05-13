@@ -8,8 +8,7 @@
 void swap_func(stack_t **head, unsigned int num_lines)
 {
 	int temp = 0, len = 0;
-
-	len = stack_len(*head);
+len = stack_len(*head);
 	if (len < 2)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", num_lines + 1);
@@ -40,4 +39,15 @@ void add_func(stack_t **head, unsigned int num_lines)
 	h->next->n = h->n + h->next->n;
 	*head = h->next;
 	free(h);
+}
+
+/**
+ *nop_func - this function does nothing
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void nop_func(stack_t **head, unsigned int num_lines)
+{
+	(void)head;
+	(void)num_lines;
 }

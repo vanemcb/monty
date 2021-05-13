@@ -59,5 +59,8 @@ void pop_func(stack_t **head, unsigned int num_lines);
 size_t stack_len(const stack_t *h);
 void swap_func(stack_t **head, unsigned int num_lines);
 void add_func(stack_t **head, unsigned int num_lines);
+void nop_func(stack_t **head, unsigned int num_lines);
+void error_push(stack_t **head, char **array_lines, char *array_line,
+	char **array_lines_token, int num_lines);
 
 #endif /* MONTY_H */

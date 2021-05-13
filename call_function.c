@@ -17,23 +17,15 @@ void call_function(stack_t **head, char **array_lines,
 		{"pop", pop_func},
 		{"swap", swap_func},
 		{"add", add_func},
+		{"nop", nop_func},
 		{NULL, NULL},
 	};
-	int i = 0, x = 0, cmp = 0;
+	int i = 0;
 	char **array_lines_token = NULL;
 
 	array_lines_token = _token(array_line, " ");
-	while (array_lines_token[x])
-		x++;
 	array_lines_token[0] = delete_jump(array_lines_token[0]);
-	if (strcmp(array_lines_token[0], "push") == 0)
-	{
-		if (x > 1)
-			n = atoi(array_lines_token[1]);
-		if (x == 1 || (n == 0 && array_lines_token[1][0] != '0'))
-			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", num_lines + 1);
-			exit(EXIT_FAILURE);
-	}
+	error_push(head, array_lines, array_line, array_lines_token, num_lines);
 	while (instruct[i].opcode != NULL)
 	{
 		if (strcmp(array_lines_token[0], instruct[i].opcode) == 0)
@@ -43,8 +35,7 @@ void call_function(stack_t **head, char **array_lines,
 		}
 		i++;
 	}
-	cmp = strcmp(array_lines_token[0], "nop");
-	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n' && cmp != 0)
+	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n')
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", num_lines + 1,
 				array_lines_token[0]),
 			free(array_line), free(array_lines),
@@ -68,4 +59,31 @@ char *delete_jump(char *array_lines_token)
 			array_lines_token[_l - 1] = '\0';
 	}
 	return (array_lines_token);
+}
+
+/**
+ *error_push - this function checks error push
+ *@head: pointer to stack head
+ *@array_lines_token: input line
+ *@array_lines: double pointer to free
+ *@array_line: store the line of file
+ *@array_lines_token: input line
+ *@num_lines: number of the line instructions
+ */
+void error_push(stack_t **head, char **array_lines, char *array_line,
+	char **array_lines_token, int num_lines)
+{
+	int x = 0;
+
+	while (array_lines_token[x])
+		x++;
+	if (strcmp(array_lines_token[0], "push") == 0)
+	{
+		if (x > 1)
+			n = atoi(array_lines_token[1]);
+		if (x == 1 || (n == 0 && array_lines_token[1][0] != '0'))
+			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", num_lines + 1),
+			free(array_line), free(array_lines), free_stactk(*head),
+			free(array_lines_token), exit(EXIT_FAILURE);
+	}
 }
