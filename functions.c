@@ -52,3 +52,52 @@ void pint_func(stack_t **head, unsigned int num_lines)
 	}
 	printf("%d\n", h->n);
 }
+
+/**
+ *pop_func - this function premoves the top element of the stack.
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void pop_func(stack_t **head, unsigned int num_lines)
+{
+	unsigned int len;
+	stack_t *head_aux = *head;
+
+	if (*head == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", num_lines + 1);
+		exit(EXIT_FAILURE);
+	}
+
+	len = stack_len(*head);
+
+	if (len == 1)
+	{
+		free(*head);
+		*head = NULL;
+	}
+	else
+	{
+		*head = (*head)->next;
+		(*head)->prev = NULL;
+		free(head_aux);
+	}
+}
+
+/**
+ * stack_len - function that returns the number of elements in a stack
+ * @h: pointer to head stack
+ * Return: the number of nodes
+ */
+
+size_t stack_len(const stack_t *h)
+{
+	size_t size = 0;
+
+	while (h)
+	{
+		h = h->next;
+		size++;
+	}
+	return (size);
+}

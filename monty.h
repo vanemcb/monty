@@ -55,5 +55,7 @@ void free_stactk(stack_t *head);
 int _strlen(char *s);
 char *delete_jump(char *array_lines_token);
 void pint_func(stack_t **head, unsigned int num_lines);
+void pop_func(stack_t **head, unsigned int num_lines);
+size_t stack_len(const stack_t *h);
 
 #endif /* MONTY_H */
