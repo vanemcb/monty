@@ -8,8 +8,8 @@
 void swap_func(stack_t **head, unsigned int num_lines)
 {
 	int temp = 0, len = 0;
-
 	len = stack_len(*head);
+
 	if (len < 2)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't swap, stack too short\n", num_lines + 1);
