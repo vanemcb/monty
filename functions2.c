@@ -51,3 +51,25 @@ void nop_func(stack_t **head, unsigned int num_lines)
 	(void)head;
 	(void)num_lines;
 }
+
+/**
+ *sub_func - this function subtracts the top two elements of the stack
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void sub_func(stack_t **head, unsigned int num_lines)
+{
+	int len = 0;
+	stack_t *h = *head;
+
+	len = stack_len(*head);
+	if (len < 2)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't sub, stack too short\n", num_lines + 1);
+		free_stactk(*head), exit(EXIT_FAILURE);
+	}
+
+	h->next->n = h->next->n - h->n;
+	*head = h->next;
+	free(h);
+}

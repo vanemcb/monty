@@ -18,6 +18,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"swap", swap_func},
 		{"add", add_func},
 		{"nop", nop_func},
+		{"sub", sub_func},
 		{NULL, NULL},
 	};
 	int i = 0;
