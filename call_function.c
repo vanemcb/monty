@@ -15,7 +15,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"pall", pall_func},
 		{NULL, NULL},
 	};
-	int i = 0, _len = 0;
+	int i = 0;
 	char **array_lines_token = NULL;
 
 	array_lines_token = _token(array_line, " ");
@@ -29,8 +29,7 @@ void call_function(stack_t **head, char **array_lines,
 	}
 	while (instruct[i].opcode != NULL)
 	{
-		_len = _strlen(instruct[i].opcode);
-		if (strncmp(array_lines_token[0], instruct[i].opcode, _len) == 0)
+		if (strcmp(array_lines_token[0], instruct[i].opcode) == 0)
 		{
 			instruct[i].f(head, num_lines);
 			break;
@@ -39,6 +38,7 @@ void call_function(stack_t **head, char **array_lines,
 	}
 	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n')
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s", num_lines + 1,
-			array_lines_token[0]), free(array_lines_token), exit(EXIT_FAILURE);
+			array_lines_token[0]), free(array_line), free(array_lines),
+			free_stactk(*head), free(array_lines_token), exit(EXIT_FAILURE);
 	free(array_lines_token);
 }
