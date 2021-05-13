@@ -35,3 +35,20 @@ void pall_func(stack_t **head, unsigned int num_lines)
 	while (h != NULL)
 		printf("%d\n", h->n), h = h->next;
 }
+
+/**
+ *pint_func - this function prints the value at the top of the stack
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void pint_func(stack_t **head, unsigned int num_lines)
+{
+	stack_t *h = *head;
+
+	if (h == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", num_lines + 1),
+			exit(EXIT_FAILURE);
+	}
+	printf("%d\n", h->n);
+}

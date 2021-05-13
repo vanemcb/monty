@@ -13,6 +13,7 @@ void call_function(stack_t **head, char **array_lines,
 	instruction_t instruct[] = {
 		{"push", push_func},
 		{"pall", pall_func},
+		{"pint", pint_func},
 		{NULL, NULL},
 	};
 	int i = 0, x = 0;
@@ -28,8 +29,8 @@ void call_function(stack_t **head, char **array_lines,
 			n = atoi(array_lines_token[1]);
 		if (x == 1 || (n == 0 && array_lines_token[1][0] != '0'))
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", num_lines + 1),
-			free_stactk(*head), free(array_lines_token),
-			free(array_line), free(array_lines), exit(EXIT_FAILURE);
+			free(array_line), free(array_lines),
+			free_stactk(*head), free(array_lines_token), exit(EXIT_FAILURE);
 	}
 	while (instruct[i].opcode != NULL)
 	{

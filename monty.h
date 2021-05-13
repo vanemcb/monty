@@ -54,5 +54,6 @@ void pall_func(stack_t **head, unsigned int num_lines);
 void free_stactk(stack_t *head);
 int _strlen(char *s);
 char *delete_jump(char *array_lines_token);
+void pint_func(stack_t **head, unsigned int num_lines);
 
 #endif /* MONTY_H */
