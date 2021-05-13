@@ -15,7 +15,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"pall", pall_func},
 		{NULL, NULL},
 	};
-	int i = 0;
+	int i = 0, _l = 0;
 	char **array_lines_token = NULL;
 
 	array_lines_token = _token(array_line, " ");
@@ -29,7 +29,12 @@ void call_function(stack_t **head, char **array_lines,
 	}
 	while (instruct[i].opcode != NULL)
 	{
-		/*_l = _strlen(instruct[i].opcode);*/
+		_l = _strlen(array_lines_token[0]);
+		if (_l != 1)
+		{
+			if (array_lines_token[0][_l - 1] == '\n')
+				array_lines_token[0][_l - 1] = '\0';
+		}
 		if (strcmp(array_lines_token[0], instruct[i].opcode) == 0)
 		{
 			instruct[i].f(head, num_lines);
