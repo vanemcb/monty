@@ -19,7 +19,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"add", add_func},
 		{NULL, NULL},
 	};
-	int i = 0, x = 0;
+	int i = 0, x = 0, cmp = 0;
 	char **array_lines_token = NULL;
 
 	array_lines_token = _token(array_line, " ");
@@ -31,9 +31,8 @@ void call_function(stack_t **head, char **array_lines,
 		if (x > 1)
 			n = atoi(array_lines_token[1]);
 		if (x == 1 || (n == 0 && array_lines_token[1][0] != '0'))
-			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", num_lines + 1),
-			free(array_line), free(array_lines),
-			free_stactk(*head), free(array_lines_token), exit(EXIT_FAILURE);
+			dprintf(STDERR_FILENO, "L%d: usage: push integer\n", num_lines + 1);
+			exit(EXIT_FAILURE);
 	}
 	while (instruct[i].opcode != NULL)
 	{
@@ -44,7 +43,8 @@ void call_function(stack_t **head, char **array_lines,
 		}
 		i++;
 	}
-	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n')
+	cmp = strcmp(array_lines_token[0], "nop");
+	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n' && cmp != 0)
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", num_lines + 1,
 				array_lines_token[0]),
 			free(array_line), free(array_lines),
