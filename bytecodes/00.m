@@ -1,4 +1,4 @@
-push 1
+push -36
 push 2
-push 3
+push sff
 pall

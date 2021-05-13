@@ -1,9 +1,15 @@
 push 0
 push 1
-pusha
+push 2
   push 3
+
+push 125478
+
+
+
+
                    pall
 push 4
-    push 5    
-      push    6        
+    push 100000    
+      push    afqwfq
     pall
