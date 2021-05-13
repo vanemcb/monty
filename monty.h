@@ -53,6 +53,6 @@ void push_func(stack_t **head, unsigned int num_lines);
 void pall_func(stack_t **head, unsigned int num_lines);
 void free_stactk(stack_t *head);
 int _strlen(char *s);
-void free_dp(char **dp);
+char *delete_jump(char *array_lines_token);
 
 #endif /* MONTY_H */
