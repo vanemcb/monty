@@ -3,10 +3,12 @@
 /**
  *call_function - this function calls the instructions of the monty file
  *@head: pointer to stack head
+ *@array_lines: double pointer to free
  *@array_line: store the line of file
  *@num_lines: number of the line instructions
  */
-void call_function(stack_t **head, char *array_line, int num_lines)
+void call_function(stack_t **head, char **array_lines,
+	char *array_line, int num_lines)
 {
 	instruction_t instruct[] = {
 		{"push", push_func},
@@ -22,7 +24,8 @@ void call_function(stack_t **head, char *array_line, int num_lines)
 		n = atoi(array_lines_token[1]);
 		if (n == 0 && array_lines_token[1][0] != '0')
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n"
-				, num_lines + 1), free(array_lines_token), exit(EXIT_FAILURE);
+				, num_lines + 1), free_stactk(*head), free(array_lines_token),
+				free(array_line), free(array_lines), exit(EXIT_FAILURE);
 	}
 	while (instruct[i].opcode != NULL)
 	{

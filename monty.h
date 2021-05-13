@@ -8,7 +8,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int n;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -40,10 +39,13 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+int n;
+
 char **_token(char *str, char *sep);
 char *_strdup(char *str);
 char **read_m(char *file_name);
-void call_function(stack_t **head, char *array_line, int num_lines);
+void call_function(stack_t **head, char **array_lines,
+char *array_line, int num_lines);
 char *_strtok(char *str, char *delim);
 int cont_lines(char *buff, char delim);
 char **read_line(char *file_name, int num_lines);
@@ -51,5 +53,6 @@ void push_func(stack_t **head, unsigned int num_lines);
 void pall_func(stack_t **head, unsigned int num_lines);
 void free_stactk(stack_t *head);
 int _strlen(char *s);
+void free_dp(char **dp);
 
 #endif /* MONTY_H */

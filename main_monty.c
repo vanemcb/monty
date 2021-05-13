@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	array_lines = read_m(av[1]);
 	while (array_lines[num_lines])
 	{
-		call_function(&head, array_lines[num_lines], num_lines);
+		call_function(&head, array_lines, array_lines[num_lines], num_lines);
 		free(array_lines[num_lines]);
 		num_lines++;
 	}
