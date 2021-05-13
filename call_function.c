@@ -22,7 +22,7 @@ void call_function(stack_t **head, char *array_line, int num_lines)
 		n = atoi(array_lines_token[1]);
 		if (n == 0 && array_lines_token[1][0] != '0')
 			dprintf(STDERR_FILENO, "L%d: usage: push integer\n"
-				, num_lines + 1), exit(EXIT_FAILURE);
+				, num_lines + 1), free(array_lines_token), exit(EXIT_FAILURE);
 	}
 	while (instruct[i].opcode != NULL)
 	{
@@ -36,6 +36,6 @@ void call_function(stack_t **head, char *array_line, int num_lines)
 	}
 	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n')
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s", num_lines + 1,
-			array_lines_token[0]), exit(EXIT_FAILURE);
+			array_lines_token[0]), free(array_lines_token), exit(EXIT_FAILURE);
 	free(array_lines_token);
 }
