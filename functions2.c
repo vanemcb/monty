@@ -75,7 +75,7 @@ void sub_func(stack_t **head, unsigned int num_lines)
 }
 
 /**
- *div_func - this function ivides the second top element of the stack
+ *div_func - this function divides the second top element of the stack
  *by the top element of the stack
  *@head: pointer to stack head
  *@num_lines: number of the line instructions

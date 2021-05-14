@@ -65,5 +65,6 @@ void error_push(stack_t **head, char **array_lines, char *array_line,
 void sub_func(stack_t **head, unsigned int num_lines);
 void div_func(stack_t **head, unsigned int num_lines);
 void mul_func(stack_t **head, unsigned int num_lines);
+void mod_func(stack_t **head, unsigned int num_lines);
 
 #endif /* MONTY_H */
