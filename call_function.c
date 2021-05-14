@@ -39,7 +39,8 @@ void call_function(stack_t **head, char **array_lines,
 		}
 		i++;
 	}
-	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n')
+	if (instruct[i].opcode == NULL && array_lines_token[0][0] != '\n' &&
+		array_lines_token[0][0] != '#')
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", num_lines + 1,
 				array_lines_token[0]),
 			free(array_line), free(array_lines),
