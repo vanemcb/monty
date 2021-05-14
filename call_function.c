@@ -20,6 +20,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"nop", nop_func},
 		{"sub", sub_func},
 		{"div", div_func},
+		{"mul", mul_func},
 		{NULL, NULL},
 	};
 	int i = 0;
