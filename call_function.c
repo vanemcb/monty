@@ -78,8 +78,7 @@ char *delete_jump(char *array_lines_token)
 void error_push(stack_t **head, char **array_lines, char *array_line,
 	char **array_lines_token, int num_lines)
 {
-	int x = 0, i = 0;
-	char i2;
+	int x = 0;
 
 	while (array_lines_token[x])
 		x++;
