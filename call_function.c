@@ -83,19 +83,6 @@ void error_push(stack_t **head, char **array_lines, char *array_line,
 
 	while (array_lines_token[x])
 		x++;
-	if (x > 1)
-	{
-		for ( ; array_lines_token[1][i] != '\0'; i++)
-		{
-			for (i2 = 'a'; i2 <= 'z' ; i2++)
-			{
-				if (array_lines_token[1][i] == i2)
-					dprintf(STDERR_FILENO, "LL%d: usage: push integer\n", num_lines + 1),
-					free(array_line), free(array_lines), free_stactk(*head),
-					free(array_lines_token), exit(EXIT_FAILURE);
-			}
-		}
-	}
 	if (strcmp(array_lines_token[0], "push") == 0)
 	{
 		if (x > 1)
