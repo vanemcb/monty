@@ -7,13 +7,12 @@
  */
 void rotr_func(stack_t **head, unsigned int num_lines)
 {
-	stack_t *temp = NULL, *temp2 = NULL, *temp3 = NULL;
-	int i = 0;
+	stack_t *temp = NULL, *temp2 = NULL;
+	int _len = 0;
 
 	(void)num_lines;
-	while (temp3 != NULL)
-		temp3 = temp3->next, i++;
-	if (i < 1)
+	_len = stack_len(*head);
+	if (_len > 1)
 	{
 		temp = *head, temp2 = *head;
 		while (temp != NULL)
