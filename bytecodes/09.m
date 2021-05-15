@@ -1,3 +1,4 @@
-push 98
-rotr Holberton
+push 1
+push 2
+rotr
 pall
