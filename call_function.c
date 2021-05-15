@@ -22,6 +22,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"div", div_func},
 		{"mul", mul_func},
 		{"mod", mod_func},
+		{"pchar", pchar_func},
 		{NULL, NULL},
 	};
 	int i = 0;

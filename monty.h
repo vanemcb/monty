@@ -66,5 +66,6 @@ void sub_func(stack_t **head, unsigned int num_lines);
 void div_func(stack_t **head, unsigned int num_lines);
 void mul_func(stack_t **head, unsigned int num_lines);
 void mod_func(stack_t **head, unsigned int num_lines);
+void pchar_func(stack_t **head, unsigned int num_lines);
 
 #endif /* MONTY_H */
