@@ -69,5 +69,6 @@ void mod_func(stack_t **head, unsigned int num_lines);
 void pchar_func(stack_t **head, unsigned int num_lines);
 void pstr_func(stack_t **head, unsigned int num_lines);
 void rotl_func(stack_t **head, unsigned int num_lines);
+void rotr_func(stack_t **head, unsigned int num_lines);
 
 #endif /* MONTY_H */
