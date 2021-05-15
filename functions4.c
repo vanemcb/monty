@@ -8,18 +8,23 @@
 void rotr_func(stack_t **head, unsigned int num_lines)
 {
 	stack_t *temp = NULL, *temp2 = NULL;
+	int _len = 0;
 
 	(void)num_lines;
-	temp = *head, temp2 = *head;
-	while (temp != NULL)
+	_len = stack_len(*head);
+	if (_len < 1)
 	{
-		if (temp->next == NULL)
+		temp = *head, temp2 = *head;
+		while (temp != NULL)
 		{
-			temp->next = temp2, temp2 = temp->prev;
-			temp->prev = NULL, temp2->next = NULL;
-			(*head)->prev = temp, *head = temp;
-			break;
+			if (temp->next == NULL)
+			{
+				temp->next = temp2, temp2 = temp->prev;
+				temp->prev = NULL, temp2->next = NULL;
+				(*head)->prev = temp, *head = temp;
+				break;
+			}
+			temp = temp->next;
 		}
-		temp = temp->next;
 	}
 }
