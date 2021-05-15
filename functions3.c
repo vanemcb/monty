@@ -51,8 +51,7 @@ void mod_func(stack_t **head, unsigned int num_lines)
 }
 
 /**
- *pchar_func - this function computes the rest of the division of the
- *second top element of the stack by the top element of the stack.
+ *pchar_func - this function prints the char at the top of the stack
  *@head: pointer to stack head
  *@num_lines: number of the line instructions
  */
@@ -66,4 +65,28 @@ void pchar_func(stack_t **head, unsigned int num_lines)
 	else
 		dprintf(STDERR_FILENO, "L%d: can't pchar, value out of range\n",
 		num_lines + 1), free_stactk(*head), exit(EXIT_FAILURE);
+}
+
+/**
+ *pstr_func - this function prints the string starting at the top of the stack
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void pstr_func(stack_t **head, unsigned int num_lines)
+{
+	stack_t *temp = NULL;
+
+	(void)num_lines;
+	temp = *head;
+	if (*head == NULL)
+		printf("\n");
+	while (temp != NULL)
+	{
+		if (temp->n >= 32 && temp->n <= 126)
+			putchar(temp->n);
+		else
+			break;
+		temp = temp->next;
+	}
+	putchar('\n');
 }
