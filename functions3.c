@@ -78,15 +78,18 @@ void pstr_func(stack_t **head, unsigned int num_lines)
 
 	(void)num_lines;
 	temp = *head;
-	if (*head == NULL)
-		printf("\n");
-	while (temp != NULL)
+	if (*head != NULL)
 	{
-		if (temp->n >= 32 && temp->n <= 126)
-			putchar(temp->n);
-		else
-			break;
-		temp = temp->next;
+		while (temp != NULL)
+		{
+			if (temp->n >= 32 && temp->n <= 126)
+				putchar(temp->n);
+			else
+				break;
+			temp = temp->next;
+		}
+		putchar('\n');
 	}
-	putchar('\n');
+	else
+		putchar('\n');
 }
