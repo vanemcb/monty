@@ -93,3 +93,28 @@ void pstr_func(stack_t **head, unsigned int num_lines)
 	else
 		putchar('\n');
 }
+
+/**
+ *rotl_func - this function rotates the stack to the top
+ *@head: pointer to stack head
+ *@num_lines: number of the line instructions
+ */
+void rotl_func(stack_t **head, unsigned int num_lines)
+{
+	stack_t *temp = NULL, *temp2 = NULL;
+
+	(void)num_lines;
+	temp = *head, temp2 = *head;
+	while (temp != NULL)
+	{
+		if (temp->next == NULL)
+		{
+			temp->next = temp2;
+			temp2->prev = temp;
+			*head = temp2->next;
+			temp2->next = NULL;
+			break;
+		}
+		temp = temp->next;
+	}
+}

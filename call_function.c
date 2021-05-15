@@ -24,6 +24,7 @@ void call_function(stack_t **head, char **array_lines,
 		{"mod", mod_func},
 		{"pchar", pchar_func},
 		{"pstr", pstr_func},
+		{"rotl", rotl_func},
 		{NULL, NULL},
 	};
 	int i = 0;
